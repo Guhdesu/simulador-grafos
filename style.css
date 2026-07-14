@@ -149,7 +149,16 @@ body {
 .feedback.wrong { color: var(--accent-red); animation: shake 0.4s; }
 
 @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+@keyframes shake { 
+    0%, 100% { transform: translateX(0); } 
+    25% { transform: translateX(-5px); } 
+    75% { transform: translateX(5px); } 
+}
+@keyframes shake-node { 
+    0%, 100% { transform: translate(-50%, -50%) translateX(0); } 
+    25% { transform: translate(-50%, -50%) translateX(-5px); } 
+    75% { transform: translate(-50%, -50%) translateX(5px); } 
+}
 
 /* Graph Area */
 .graph-area {
@@ -251,7 +260,7 @@ body {
 }
 
 .node.shake {
-    animation: shake 0.4s;
+    animation: shake-node 0.4s;
     border-color: var(--accent-red);
     background: rgba(239, 68, 68, 0.2);
 }
