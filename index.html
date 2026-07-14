@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detetive de Grafos - Interativo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        
+        <!-- LEFT PANEL: Controls -->
+        <aside class="sidebar-left glass-panel">
+            <h1 class="logo">🕵️‍♂️ Grafos</h1>
+            
+            <div class="control-section">
+                <h2>Algoritmo</h2>
+                <button id="btn-bfs" class="btn active">🌊 BFS (Largura)</button>
+                <button id="btn-dfs" class="btn">🕳️ DFS (Profundidade)</button>
+                <button id="btn-dijkstra" class="btn">🚗 Dijkstra (Caminho)</button>
+                <button id="btn-prim" class="btn">🌲 Prim (AGM)</button>
+                <button id="btn-kruskal" class="btn">🧩 Kruskal (AGM)</button>
+            </div>
+            
+            <div class="control-section">
+                <h2>Dificuldade</h2>
+                <div class="difficulty-group">
+                    <button id="btn-diff-easy" class="btn diff-btn active">Fácil</button>
+                    <button id="btn-diff-medium" class="btn diff-btn">Médio</button>
+                    <button id="btn-diff-hard" class="btn diff-btn">Difícil 💀</button>
+                </div>
+            </div>
+
+            <div class="control-section" style="margin-top: 0.5rem; background: rgba(0,0,0,0.2); padding: 0.8rem; border-radius: 8px;">
+                <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; font-size:0.9rem; font-weight:600; color: #cbd5e1;">
+                    <input type="checkbox" id="chk-negative" style="width:18px;height:18px;accent-color:#ef4444;">
+                    Permitir Pesos Negativos
+                </label>
+            </div>
+
+            <div class="control-section" style="margin-top: 1rem;">
+                <h2>Presets de Aula</h2>
+                <select id="preset-select" class="btn" style="text-align:center; padding:0.6rem; background: #334155;">
+                    <option value="">🎲 Mapas Aleatórios</option>
+                    <option value="bfs1">BFS: Grafo Estrela</option>
+                    <option value="bfs2">BFS: Diamante</option>
+                    <option value="bfs3">BFS: Em Linha</option>
+                    <option value="dijkstra1">Dijkstra: Atalho Oculto</option>
+                    <option value="dijkstra2">Dijkstra: Labirinto Simples</option>
+                    <option value="dijkstra3">Dijkstra: Falha Negativa</option>
+                </select>
+            </div>
+
+            <button id="btn-reset" class="btn btn-secondary" style="margin-top: auto;">🔄 Gerar Novo Mapa</button>
+        </aside>
+
+        <!-- CENTER PANEL: Graph and Console -->
+        <main class="center-area">
+            <header class="glass-panel" id="instruction-header">
+                <div id="instruction-text">Carregando...</div>
+                <div id="feedback-message"></div>
+            </header>
+            
+            <section class="graph-area glass-panel">
+                <svg id="edges-svg"></svg>
+                <div id="nodes-container"></div>
+            </section>
+            
+            <footer class="console-panel">
+                <div class="console-header">
+                    <span>🔴 🟡 🟢</span>
+                    <span>c_compiler_runtime.exe</span>
+                </div>
+                <div id="console-output" class="console-body"></div>
+            </footer>
+        </main>
+
+        <!-- RIGHT PANEL: State Tracking -->
+        <aside class="sidebar-right glass-panel">
+            <div class="state-section">
+                <h2>Memória de Trabalho</h2>
+                <div id="queue-display" class="state-container"></div>
+            </div>
+            
+            <div class="state-section">
+                <h2>Histórico (Visitados)</h2>
+                <div id="visited-display" class="state-container"></div>
+            </div>
+        </aside>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
